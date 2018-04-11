@@ -1,11 +1,7 @@
-spring:
-  application:
-    name: HelloSvc
-
 server:
-  port: 8080
+  port: 8081
 
-## Configuring info endpoint
+# Configuring info endpoint
 info:
   app:
     name: @project.name@
@@ -14,11 +10,8 @@ info:
     time: "@buildTime@"
     number: "@buildNumber@"
 
-springfox:
-  documentation:
-    swagger:
-      v2:
-        path: /api-docs
+helloservice:
+  url: http://localhost:8080
 
 logging:
   level:

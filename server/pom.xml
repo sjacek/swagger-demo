@@ -8,7 +8,7 @@
     <version>SNAPSHOT1</version>
     <packaging>jar</packaging>
 
-    <name>swagger-demo</name>
+    <name>server</name>
     <description>Demonstration of using swagger in client and server code</description>
 
     <parent>
@@ -49,11 +49,6 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>pl.gov.csioz.p1</groupId>
-            <artifactId>pdf-generator</artifactId>
-            <version>0.4</version>
-        </dependency>
-        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
         </dependency>
@@ -74,7 +69,6 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <!--<version>4.3.11.RELEASE</version>-->
             <scope>test</scope>
         </dependency>
         <dependency>
