@@ -1,0 +1,36 @@
+swagger: '2.0'
+info:
+  description: |-
+   Release Notes:
+    Hello v0.1:
+     Initial version
+  version: v0.1
+  title: Swagger Demo API v0.1
+  contact:
+    name: Jacek Sztajnke
+    email: jacek.sztajnke@gmail.com
+host: 'localhost:8080'
+basePath: /
+tags:
+  - name: hello-controller
+    description: Hello Controller
+paths:
+  /v0.1/hello:
+    get:
+      tags:
+        - hello-controller
+      summary: hello
+      operationId: helloUsingGET_1
+      produces:
+        - text/plain
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found

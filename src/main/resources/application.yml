@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: HelloSvc
+
+server:
+  port: 8080
+
+## Configuring info endpoint
+info:
+  app:
+    name: @project.name@
+    description: @project.description@
+    version: @project.version@
+    time: "@buildTime@"
+#    number: "@buildNumber@"
+
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /api-docs
+
+logging:
+  level:
+#    org.springframework: DEBUG
+#    org.springframework.boot: DEBUG
+    org.springframework.web.filter.CommonsRequestLoggingFilter: INFO
+    org.apache: INFO
+    com.github.sjacek: DEBUG
+  file: ./app.log
