@@ -16,6 +16,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import java.lang.invoke.MethodHandles;
 
 import static com.github.sjacek.swagger_demo.config.SwaggerConfig.Version.v01;
+import static com.github.sjacek.swagger_demo.controller.HelloController.HELLO_METHOD;
 import static java.lang.String.format;
 import static springfox.documentation.builders.PathSelectors.regex;
 import static springfox.documentation.spi.DocumentationType.SWAGGER_2;
@@ -43,8 +44,6 @@ public class SwaggerConfig {
         }
     }
 
-    public static final String HELLO = "hello";
-
     @Bean
     public Docket all() {
         return new Docket(SWAGGER_2)
@@ -68,7 +67,7 @@ public class SwaggerConfig {
 
     @NotNull
     private Predicate<String> helloPaths(Version version) {
-        String s = format("/%s/%s.*", version, HELLO);
+        String s = format("/%s/%s.*", version, HELLO_METHOD);
         return regex(s);
     }
 

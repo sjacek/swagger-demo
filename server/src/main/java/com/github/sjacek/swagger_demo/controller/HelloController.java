@@ -11,7 +11,9 @@ import static org.springframework.http.MediaType.TEXT_PLAIN_VALUE;
 @RequestMapping(value = "/" + V01, produces = TEXT_PLAIN_VALUE)
 public class HelloController {
 
-    @GetMapping("/hello")
+    public static final String HELLO_METHOD = "hello";
+
+    @GetMapping("/" + HELLO_METHOD)
     String hello() {
         return "Hello, world!";
     }
