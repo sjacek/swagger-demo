@@ -9,12 +9,32 @@ info:
   contact:
     name: Jacek Sztajnke
     email: jacek.sztajnke@gmail.com
-host: 'localhost:8080'
+host: 'http://localhost:8080'
 basePath: /
 tags:
   - name: hello-controller
     description: Hello Controller
 paths:
+  /v0.1/now:
+    get:
+      tags:
+        - hello-controller
+      summary: hello
+      operationId: now
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/NowOutput'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+
   /v0.1/hello:
     get:
       tags:
@@ -34,3 +54,74 @@ paths:
           description: Forbidden
         '404':
           description: Not Found
+
+  /v0.1/send_text/{text}:
+    get:
+      tags:
+        - hello-controller
+      summary: hello
+      operationId: sendTextUsingGET_1
+#      consumes:
+#        - application/json
+#      produces:
+#        - application/json
+      parameters:
+        - name: text
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+
+  /v0.1/send_date:
+    get:
+      tags:
+        - hello-controller
+      summary: hello
+      operationId: sendDate
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: date
+          in: query
+          required: true
+          type: string
+          format: 'date-time'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SendDateOutput'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+definitions:
+  NowOutput:
+    type: object
+    required:
+      - dt
+    properties:
+      dt:
+        type: string
+        format: 'date-time'
+  SendDateOutput:
+    type: object
+    required:
+      - ret
+    properties:
+      ret:
+        type: string

@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.lang.invoke.MethodHandles;
 
 import static com.github.sjacek.swagger_demo.config.SwaggerConfig.V01;
-import static com.github.sjacek.swagger_demo.controller.HelloController.HELLO_METHOD;
 import static java.lang.String.format;
 
 @Configuration
@@ -40,7 +39,7 @@ public class MvcConfig implements WebMvcConfigurer {
                 return true;
             }
         };
-        registry.addInterceptor(handlerInterceptorAdapter).addPathPatterns(format("/%s/%s/**/", V01, HELLO_METHOD));
+        registry.addInterceptor(handlerInterceptorAdapter).addPathPatterns(format("/%s/*/**/", V01));
     }
 
 //    @Bean

@@ -16,7 +16,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import java.lang.invoke.MethodHandles;
 
 import static com.github.sjacek.swagger_demo.config.SwaggerConfig.Version.v01;
-import static com.github.sjacek.swagger_demo.controller.HelloController.HELLO_METHOD;
 import static java.lang.String.format;
 import static springfox.documentation.builders.PathSelectors.regex;
 import static springfox.documentation.spi.DocumentationType.SWAGGER_2;
@@ -67,13 +66,13 @@ public class SwaggerConfig {
 
     @NotNull
     private Predicate<String> helloPaths(Version version) {
-        String s = format("/%s/%s.*", version, HELLO_METHOD);
+        String s = format("/%s/*.*", version);
         return regex(s);
     }
 
     private ApiInfo helloApiInfo(@NotNull Version version) {
         ApiInfoBuilder ret = new ApiInfoBuilder()
-                .title("e-Recepta API " + version)
+                .title("Swagger Demo API " + version)
                 .contact(new Contact("Jacek Sztajnke", "", "jacek.sztajnke@gmail.com"))
                 .version(version.toString());
 
